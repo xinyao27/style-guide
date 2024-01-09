@@ -1,4 +1,4 @@
-# The xystack Style Guide
+# The XYStack Style Guide
 
 <a aria-label="NPM version" href="https://www.npmjs.com/package/@xystack/style-guide">
   <img alt="" src="https://img.shields.io/npm/v/@xystack/style-guide.svg?style=flat-square&labelColor=000000">
@@ -14,7 +14,7 @@ popular linting and styling tools.
 
 The following configs are available, and are designed to be used together.
 
-- [The xystack Style Guide](#the-xystack-style-guide)
+- [The XYStack Style Guide](#the-xystack-style-guide)
   - [Introduction](#introduction)
   - [Contributing](#contributing)
   - [Installation](#installation)
