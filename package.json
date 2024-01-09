@@ -1,0 +1,100 @@
+{
+  "name": "@xystack/style-guide",
+  "version": "0.0.0",
+  "packageManager": "pnpm@8.14.0",
+  "description": "xinyao's style guide",
+  "type": "module",
+  "license": "MIT",
+  "homepage": "https://github.com/xinyao27/style-guide#readme",
+  "bugs": {
+    "url": "https://github.com/xinyao27/style-guide/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xinyao27/style-guide.git"
+  },
+  "files": [
+    "eslint",
+    "prettier",
+    "typescript"
+  ],
+  "main": "index.js",
+  "exports": {
+    "./eslint/*": "./eslint/*.js",
+    "./prettier": "./prettier/prettier.config.js",
+    "./typescript": "./typescript/tsconfig.base.json",
+    "./typescript/node16": "./typescript/tsconfig.node16.json",
+    "./typescript/node18": "./typescript/tsconfig.node18.json",
+    "./typescript/node20": "./typescript/tsconfig.node20.json"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "up": "taze major -Ir",
+    "prepare": "husky install",
+    "eslint-check": "eslint --max-warnings=0 .",
+    "prettier-check": "prettier --check .",
+    "release": "bumpp && pnpm publish"
+  },
+  "peerDependencies": {
+    "eslint": ">=8.48.0 <9",
+    "prettier": ">=3.0.0 <4",
+    "typescript": ">=4.8.0 <6"
+  },
+  "peerDependenciesMeta": {
+    "eslint": {
+      "optional": true
+    },
+    "prettier": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@eslint/js": "^8.56.0",
+    "@next/eslint-plugin-next": "^14.0.4",
+    "@typescript-eslint/eslint-plugin": "^6.18.1",
+    "@typescript-eslint/parser": "^6.18.1",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-antfu": "^2.1.1",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-jsonc": "^2.11.2",
+    "eslint-plugin-markdown": "^3.0.1",
+    "eslint-plugin-prettier": "^5.1.2",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-unicorn": "^50.0.1",
+    "eslint-plugin-unused-imports": "^3.0.0",
+    "eslint-plugin-vue": "^9.19.2",
+    "eslint-plugin-yml": "^1.11.0",
+    "globals": "^13.24.0",
+    "jsonc-eslint-parser": "^2.4.0",
+    "local-pkg": "^0.5.0",
+    "prettier": "^3.1.1",
+    "vue-eslint-parser": "^9.4.0",
+    "yaml-eslint-parser": "^1.2.2"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^18.4.4",
+    "@commitlint/config-conventional": "^18.4.4",
+    "bumpp": "^9.2.1",
+    "eslint": "^8.56.0",
+    "husky": "^8.0.3",
+    "lint-staged": "^15.2.0",
+    "prettier": "^3.1.1",
+    "taze": "^0.13.1",
+    "typescript": "^5.3.3"
+  },
+  "engines": {
+    "node": ">=16"
+  },
+  "lint-staged": {
+    "*": "prettier -w --ignore-unknown"
+  },
+  "prettier": "./prettier/prettier.config.js"
+}
