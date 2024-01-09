@@ -6,9 +6,6 @@
 <a aria-label="License" href="https://github.com/xystack/style-guide/blob/main/LICENSE.md">
   <img alt="" src="https://img.shields.io/npm/l/@xystack/style-guide.svg?style=flat-square&labelColor=000000">
 </a>
-<a aria-label="CI status" href="https://github.com/xystack/style-guide/actions/workflows/quality.yml?query=event%3Apush+branch%3Amain">
-  <img alt="" src="https://img.shields.io/github/actions/workflow/status/xystack/style-guide/quality.yml?event=push&branch=main&style=flat-square&labelColor=000000">
-</a>
 
 ## Introduction
 
@@ -89,13 +86,12 @@ export default all
 }
 ```
 
-
 ## TypeScript
 
 This style guide provides multiple TypeScript configs. These configs correlate to the LTS Node.js versions, providing the appropriate `lib`, `module`, `target`, and `moduleResolution` settings for each version. The following configs are available:
 
-| Node.js Version | TypeScript Config                       |
-| --------------- | --------------------------------------- |
+| Node.js Version | TypeScript Config                        |
+| --------------- | ---------------------------------------- |
 | v16             | `@xystack/style-guide/typescript/node16` |
 | v18             | `@xystack/style-guide/typescript/node18` |
 | v20             | `@xystack/style-guide/typescript/node20` |
