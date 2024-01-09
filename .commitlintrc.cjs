@@ -27,6 +27,8 @@ module.exports = {
         'test',
         // Used for automated releases-only
         'release',
+        // Other changes that don't modify src or test files
+        'chore',
       ],
     ],
     'scope-enum': [
@@ -41,8 +43,6 @@ module.exports = {
         'prettier',
         // TypeScript-related changes
         'typescript',
-        // Go-related changes
-        'golang',
       ],
     ],
     'scope-empty': [1, 'never'],
