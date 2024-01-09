@@ -20,7 +20,7 @@
   ],
   "main": "index.js",
   "exports": {
-    "./eslint/*": "./eslint/*.js",
+    "./eslint": "./eslint/index.js",
     "./prettier": "./prettier/prettier.config.js",
     "./typescript": "./typescript/tsconfig.json"
   },
