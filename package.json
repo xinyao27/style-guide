@@ -1,6 +1,6 @@
 {
   "name": "@xystack/style-guide",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "packageManager": "pnpm@9.0.6",
   "description": "xinyao's style guide",
   "type": "module",
