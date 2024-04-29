@@ -2,6 +2,7 @@ import { eslintComments } from './eslint-comments.js'
 import { imports, js, jsx, unicorn } from './js.js'
 import { jsonc, pkgOrder } from './jsonc.js'
 import { markdown } from './markdown.js'
+import { perfectionist } from './perfectionist.js'
 import { GLOB_EXCLUDE } from './shared.js'
 import { typescript } from './typescript.js'
 import { vue } from './vue.js'
@@ -27,6 +28,7 @@ export const basic = [
   ...markdown,
   ...eslintComments,
   ...prettier,
+  ...perfectionist,
 ]
 
 /** @type { FlatESLintConfigItem[] } */
