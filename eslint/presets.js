@@ -15,7 +15,6 @@ import { prettier } from './prettier.js'
 
 /** @type {FlatESLintConfigItem[]} */
 export const basic = [
-  // @ts-ignore
   { ignores: GLOB_EXCLUDE },
   ...js,
   ...jsx,

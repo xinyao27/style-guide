@@ -1,6 +1,6 @@
 import globals from 'globals'
 import jsConfig from '@eslint/js'
-import importPlugin from 'eslint-plugin-import'
+import importPlugin from 'eslint-plugin-import-x'
 import unusedImportsPlugin from 'eslint-plugin-unused-imports'
 import unicornPlugin from 'eslint-plugin-unicorn'
 import antfuPlugin from 'eslint-plugin-antfu'
@@ -202,11 +202,6 @@ export const imports = [
       import: importPlugin,
       antfu: antfuPlugin,
     },
-    settings: {
-      'import/resolver': {
-        node: { extensions: ['.js', '.mjs', '.ts', '.mts', '.d.ts'] },
-      },
-    },
     rules: {
       'import/first': 'error',
       'import/no-mutable-exports': 'error',
@@ -242,11 +237,11 @@ export const imports = [
   {
     files: [
       `**/*config*.${GLOB_SRC_EXT}`,
-      `**/views/${GLOB_SRC}`,
-      `**/pages/${GLOB_SRC}`,
-      '**/{index,vite,esbuild,rollup,webpack,rspack}.ts',
+      `**/{views,pages,routes,middleware,plugins,api}/${GLOB_SRC}`,
+      `**/{index,vite,esbuild,rollup,rolldown,webpack,rspack}.ts`,
       '**/*.d.ts',
       `${GLOB_MARKDOWN}/**`,
+      '**/.prettierrc*',
     ],
     plugins: { import: importPlugin },
     rules: { 'import/no-default-export': 'off' },

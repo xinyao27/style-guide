@@ -22,7 +22,6 @@ export const react = [
       },
     },
     rules: {
-      'react/no-array-index-key': ['error'],
       'react/prop-types': 'off',
       'react/require-default-props': 'off',
 
