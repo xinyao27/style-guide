@@ -2,19 +2,7 @@
 
 ## Installing
 
-This project uses pnpm.
-
-To get started, run:
-
-```sh
-corepack enable
-```
-
-Then, run:
-
-```sh
-pnpm i
-```
+This project uses [bun](https://bun.sh/).
 
 ## Before creating a pull request
 
