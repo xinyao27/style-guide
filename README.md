@@ -82,6 +82,7 @@ export default all
 
 ```json
 {
+  // (remove this if your ESLint extension above v3.0.5)
   "eslint.experimental.useFlatConfig": true
 }
 ```
