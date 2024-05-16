@@ -23,6 +23,7 @@
     "./prettier": "./prettier/prettier.config.js",
     "./typescript": "./typescript/tsconfig.json"
   },
+  "bin": "./bin/index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -77,15 +78,19 @@
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
+    "@antfu/ni": "^0.21.12",
+    "@clack/prompts": "^0.7.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "bumpp": "^9.4.1",
     "eslint": "^9.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
+    "parse-gitignore": "^2.0.0",
     "prettier": "^3.2.5",
     "taze": "^0.13.8",
-    "typescript": "^5.4.5"
+    "typescript": "^5.4.5",
+    "yoctocolors": "^2.0.2"
   },
   "engines": {
     "node": ">=18"
