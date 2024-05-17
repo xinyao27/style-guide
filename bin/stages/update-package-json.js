@@ -1,7 +1,7 @@
 import path from 'node:path'
 import fsp from 'node:fs/promises'
 import process from 'node:process'
-import c from 'picocolors'
+import * as c from 'xycolors'
 import * as p from '@clack/prompts'
 import { pkgJson } from '../utils.js'
 
@@ -18,7 +18,9 @@ export async function updatePackageJson() {
   pkg.devDependencies ??= {}
   pkg.devDependencies[pkgJson.name] = `^${pkgJson.version}`
   pkg.devDependencies.eslint ??= pkgJson.devDependencies.eslint.replace('npm:eslint-ts-patch@', '').replace(/-\d+$/, '')
-  pkg.prettier = '@xystack/style-guide/prettier'
+  pkg.devDependencies.prettier ??= pkgJson.devDependencies.prettier.replace(/-\d+$/, '')
+  pkg.devDependencies.typescript ??= pkgJson.devDependencies.typescript.replace(/-\d+$/, '')
+  pkg.prettier = `${pkgJson.name}/prettier`
 
   const addedPackages = []
 
