@@ -13,7 +13,9 @@
     "url": "https://github.com/xinyao27/style-guide.git"
   },
   "files": [
+    "bin",
     "eslint",
+    "package.json",
     "prettier",
     "typescript"
   ],
