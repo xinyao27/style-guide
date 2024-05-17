@@ -52,10 +52,12 @@
     }
   },
   "dependencies": {
+    "@antfu/ni": "^0.21.12",
+    "@clack/prompts": "^0.7.0",
     "@eslint/js": "^9.2.0",
     "@next/eslint-plugin-next": "^14.2.3",
-    "@typescript-eslint/eslint-plugin": "^7.8.0",
-    "@typescript-eslint/parser": "^7.8.0",
+    "@typescript-eslint/eslint-plugin": "^7.9.0",
+    "@typescript-eslint/parser": "^7.9.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-define-config": "^2.1.0",
     "eslint-plugin-antfu": "^2.2.0",
@@ -74,23 +76,21 @@
     "globals": "^15.2.0",
     "jsonc-eslint-parser": "^2.4.0",
     "local-pkg": "^0.5.0",
+    "parse-gitignore": "^2.0.0",
     "vue-eslint-parser": "^9.4.2",
+    "xycolors": "^0.1.1",
     "yaml-eslint-parser": "^1.2.2"
   },
   "devDependencies": {
-    "@antfu/ni": "^0.21.12",
-    "@clack/prompts": "^0.7.0",
     "@commitlint/cli": "^19.3.0",
     "@commitlint/config-conventional": "^19.2.2",
     "bumpp": "^9.4.1",
     "eslint": "^9.2.0",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.2",
-    "parse-gitignore": "^2.0.0",
     "prettier": "^3.2.5",
     "taze": "^0.13.8",
-    "typescript": "^5.4.5",
-    "xycolors": "^0.1.1"
+    "typescript": "^5.4.5"
   },
   "engines": {
     "node": ">=18"
