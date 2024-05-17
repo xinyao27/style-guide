@@ -1,7 +1,7 @@
 import process from 'node:process'
 import { detect, parseNi } from '@antfu/ni'
 import * as p from '@clack/prompts'
-import * as c from 'yoctocolors'
+import * as c from 'xycolors'
 import { execPromise } from '../utils.js'
 import { packageManagers } from '../constants.js'
 

@@ -20,7 +20,7 @@ export async function updateEslintFiles() {
 
   const eslintIgnores = []
   if (fs.existsSync(pathESLintIgnore)) {
-    p.log.step(c.cyan(`Migrating existing .eslintignore`))
+    p.log.step(c.cyanStylize(`Migrating existing .eslintignore`))
     const content = await fsp.readFile(pathESLintIgnore, 'utf-8')
     const parsed = parse(content)
     const globs = parsed.globs()
@@ -38,7 +38,7 @@ export async function updateEslintFiles() {
   const eslintConfigContent = getEslintConfigContent()
 
   await fsp.writeFile(pathFlatConfig, eslintConfigContent)
-  p.log.success(c.green(`Created ${configFileName}`))
+  p.log.success(c.greenStylize(`Created ${configFileName}`))
 
   const files = fs.readdirSync(cwd)
   const legacyConfig = []

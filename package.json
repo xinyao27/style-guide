@@ -90,7 +90,7 @@
     "prettier": "^3.2.5",
     "taze": "^0.13.8",
     "typescript": "^5.4.5",
-    "yoctocolors": "^2.0.2"
+    "xycolors": "^0.1.1"
   },
   "engines": {
     "node": ">=18"

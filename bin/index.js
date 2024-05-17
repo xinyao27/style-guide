@@ -2,7 +2,7 @@
 
 /* eslint-disable no-console */
 import * as p from '@clack/prompts'
-import * as c from 'yoctocolors'
+import * as c from 'xycolors'
 import { isGitClean, pkgJson } from './utils.js'
 import { updatePackageJson } from './stages/update-package-json.js'
 import { updateEslintFiles } from './stages/update-eslint-files.js'
@@ -10,7 +10,7 @@ import { updateTheDependencies } from './stages/update-the-dependencies.js'
 
 async function main() {
   console.log()
-  p.intro(`✨ ${c.magenta(`${pkgJson.name} `)}${c.dim(`v${pkgJson.version}`)}`)
+  p.intro(`✨ ${c.magentaStylize(`${pkgJson.name} `)}${c.dim(`v${pkgJson.version}`)}`)
 
   const result = await p.group(
     {
@@ -54,13 +54,13 @@ async function main() {
     },
   )
 
-  p.log.success(c.green(`Setup completed`))
-  p.outro(`Now you can run ${c.blue('eslint . --fix')}\n`)
+  p.log.success(c.greenStylize(`Setup completed`))
+  p.outro(`Now you can run ${c.blueStylize('eslint . --fix')}\n`)
 }
 
 // eslint-disable-next-line unicorn/prefer-top-level-await
 main().catch((error) => {
-  p.log.error(c.inverse(c.red(' Failed to migrate ')))
+  p.log.error(c.inverse(c.redStylize(' Failed to migrate ')))
   console.error(error)
   process.exit(1)
 })

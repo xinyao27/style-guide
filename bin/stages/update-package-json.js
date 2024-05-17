@@ -10,7 +10,7 @@ export async function updatePackageJson() {
 
   const pathPackageJSON = path.join(cwd, 'package.json')
 
-  p.log.step(c.cyan(`Bumping ${pkgJson.name} to v${pkgJson.version}`))
+  p.log.step(c.cyanStylize(`Bumping ${pkgJson.name} to v${pkgJson.version}`))
 
   const pkgContent = await fsp.readFile(pathPackageJSON, 'utf-8')
   const pkg = JSON.parse(pkgContent)
@@ -25,5 +25,5 @@ export async function updatePackageJson() {
   if (addedPackages.length > 0) p.note(`${c.dim(addedPackages.join(', '))}`, 'Added packages')
 
   await fsp.writeFile(pathPackageJSON, JSON.stringify(pkg, null, 2))
-  p.log.success(c.green(`Changes wrote to package.json`))
+  p.log.success(c.greenStylize(`Changes wrote to package.json`))
 }
