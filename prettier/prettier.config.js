@@ -13,6 +13,7 @@ const config = {
   tabWidth: 2,
   printWidth: 120,
   useTabs: false,
+  plugins: ['prettier-plugin-tailwindcss'],
   overrides: [
     {
       files: [
