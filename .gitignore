@@ -17,3 +17,5 @@ lerna-debug.log*
 
 # Keys
 .env
+
+_fixtures

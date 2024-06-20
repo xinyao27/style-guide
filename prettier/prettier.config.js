@@ -19,7 +19,6 @@ const config = {
       files: [
         '**/node_modules/**',
         '**/dist/**',
-        '**/output/**',
         '**/coverage/**',
         '**/temp/**',
         '**/.vitepress/cache/**',
