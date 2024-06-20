@@ -7,12 +7,13 @@ import { isGitClean, pkgJson } from './utils.js'
 import { updatePackageJson } from './stages/update-package-json.js'
 import { updateEslintFiles } from './stages/update-eslint-files.js'
 import { updateTheDependencies } from './stages/update-the-dependencies.js'
+import { updateVSCode } from './stages/update-vscode.js'
 
 async function main() {
   console.log()
   p.intro(`✨ ${c.magentaStylize(`${pkgJson.name} `)}${c.dim(`v${pkgJson.version}`)}`)
 
-  const result = await p.group(
+  await p.group(
     {
       uncommittedConfirmed: () => {
         if (isGitClean()) {
@@ -44,6 +45,13 @@ async function main() {
         }
 
         return await updateTheDependencies()
+      },
+      updateVSCode: async ({ results }) => {
+        if (!results.uncommittedConfirmed) {
+          return process.exit(1)
+        }
+
+        return await updateVSCode()
       },
     },
     {

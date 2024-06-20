@@ -31,6 +31,14 @@ guide before creating a pull request.
 
 ## Installation
 
+### Starter Wizard
+
+```sh
+npx @xystack/style-guide@latest
+```
+
+### Manual Installation
+
 All of our configs are contained in one package, `@xystack/style-guide`. To install:
 
 ```sh
@@ -82,8 +90,31 @@ export default all
 
 ```json
 {
-  // (remove this if your ESLint extension above v3.0.5)
-  "eslint.experimental.useFlatConfig": true
+  "eslint.useFlatConfig": true,
+  "prettier.enable": false,
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "vue",
+    "html",
+    "markdown",
+    "json",
+    "jsonc",
+    "astro",
+    "css",
+    "less",
+    "scss",
+    "pcss",
+    "postcss"
+  ],
+  "html.format.enable": false
 }
 ```
 

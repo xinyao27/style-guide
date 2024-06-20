@@ -9,7 +9,6 @@ import {
   GLOB_MARKDOWN,
   GLOB_POSTCSS,
   GLOB_SCSS,
-  GLOB_TOML,
 } from '../shared.js'
 import formatPlugin from './format.js'
 

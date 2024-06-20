@@ -1,6 +1,6 @@
 import path from 'node:path'
-import fsp from 'node:fs/promises'
 import process from 'node:process'
+import fs from 'fs-extra'
 import * as c from 'xycolors'
 import * as p from '@clack/prompts'
 import { pkgJson } from '../utils.js'
@@ -12,20 +12,22 @@ export async function updatePackageJson() {
 
   p.log.step(c.cyanStylize(`Bumping ${pkgJson.name} to v${pkgJson.version}`))
 
-  const pkgContent = await fsp.readFile(pathPackageJSON, 'utf-8')
+  const pkgContent = await fs.readFile(pathPackageJSON, 'utf-8')
   const pkg = JSON.parse(pkgContent)
 
   pkg.devDependencies ??= {}
   pkg.devDependencies[pkgJson.name] = `^${pkgJson.version}`
-  pkg.devDependencies.eslint ??= pkgJson.devDependencies.eslint.replace('npm:eslint-ts-patch@', '').replace(/-\d+$/, '')
-  pkg.devDependencies.prettier ??= pkgJson.devDependencies.prettier.replace(/-\d+$/, '')
-  pkg.devDependencies.typescript ??= pkgJson.devDependencies.typescript.replace(/-\d+$/, '')
+  pkg.devDependencies.eslint ??= pkgJson.devDependencies.eslint
+    ?.replace('npm:eslint-ts-patch@', '')
+    ?.replace(/-\d+$/, '')
+  pkg.devDependencies.prettier ??= pkgJson.devDependencies.prettier?.replace(/-\d+$/, '')
+  pkg.devDependencies.typescript ??= pkgJson.devDependencies.typescript?.replace(/-\d+$/, '')
   pkg.prettier = `${pkgJson.name}/prettier`
 
   const addedPackages = []
 
   if (addedPackages.length > 0) p.note(`${c.dim(addedPackages.join(', '))}`, 'Added packages')
 
-  await fsp.writeFile(pathPackageJSON, JSON.stringify(pkg, null, 2))
+  await fs.writeFile(pathPackageJSON, JSON.stringify(pkg, null, 2))
   p.log.success(c.greenStylize(`Changes wrote to package.json`))
 }

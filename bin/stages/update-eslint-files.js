@@ -1,7 +1,6 @@
-import fs from 'node:fs'
-import fsp from 'node:fs/promises'
 import process from 'node:process'
 import path from 'node:path'
+import fs from 'fs-extra'
 import * as c from 'xycolors'
 import * as p from '@clack/prompts'
 import parse from 'parse-gitignore'
@@ -12,7 +11,7 @@ export async function updateEslintFiles() {
   const pathESLintIgnore = path.join(cwd, '.eslintignore')
   const pathPackageJSON = path.join(cwd, 'package.json')
 
-  const pkgContent = await fsp.readFile(pathPackageJSON, 'utf-8')
+  const pkgContent = await fs.readFile(pathPackageJSON, 'utf-8')
   const pkg = JSON.parse(pkgContent)
 
   const configFileName = pkg.type === 'module' ? 'eslint.config.js' : 'eslint.config.mjs'
@@ -21,7 +20,7 @@ export async function updateEslintFiles() {
   const eslintIgnores = []
   if (fs.existsSync(pathESLintIgnore)) {
     p.log.step(c.cyanStylize(`Migrating existing .eslintignore`))
-    const content = await fsp.readFile(pathESLintIgnore, 'utf-8')
+    const content = await fs.readFile(pathESLintIgnore, 'utf-8')
     const parsed = parse(content)
     const globs = parsed.globs()
 
@@ -37,7 +36,7 @@ export async function updateEslintFiles() {
 
   const eslintConfigContent = getEslintConfigContent()
 
-  await fsp.writeFile(pathFlatConfig, eslintConfigContent)
+  await fs.writeFile(pathFlatConfig, eslintConfigContent)
   p.log.success(c.greenStylize(`Created ${configFileName}`))
 
   const files = fs.readdirSync(cwd)
@@ -53,7 +52,7 @@ export async function updateEslintFiles() {
     })
     if (needDelete) {
       for (const file of legacyConfig) {
-        await fsp.unlink(path.join(cwd, file))
+        await fs.remove(path.join(cwd, file))
       }
     } else {
       p.note(`${c.dim(legacyConfig.join(', '))}`, 'You can remove those files manually')

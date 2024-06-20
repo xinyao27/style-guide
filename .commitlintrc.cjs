@@ -43,6 +43,8 @@ module.exports = {
         'prettier',
         // TypeScript-related changes
         'typescript',
+        // wizard-related changes
+        'wizard',
       ],
     ],
     'scope-empty': [1, 'never'],
