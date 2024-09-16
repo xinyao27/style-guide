@@ -44,7 +44,7 @@ export async function updateVSCode() {
     await fs.writeFile(vscodeSettingsPath, JSON.stringify(newSettings, null, 2))
     p.log.success(c.greenStylize(`Updated ${c.cyanStylize('settings.json')}`))
   } else {
-    await fs.mkdir(vscodeDirPath)
+    await fs.mkdir(vscodeDirPath, { recursive: true })
     await fs.writeFile(vscodeSettingsPath, JSON.stringify(settings, null, 2))
     p.log.success(c.greenStylize(`Created ${c.cyanStylize('settings.json')}`))
   }
