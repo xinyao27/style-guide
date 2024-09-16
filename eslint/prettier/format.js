@@ -42,8 +42,7 @@ export default {
               })
 
               reportDifferences(context, sourceCode, formatted)
-            }
-            catch (error_) {
+            } catch (error_) {
               if (!(error_ instanceof SyntaxError)) {
                 context.report({
                   loc: {
