@@ -9,9 +9,10 @@
     "declaration": true, // https://www.typescriptlang.org/zh/tsconfig#declaration
     "declarationMap": true, // https://www.typescriptlang.org/zh/tsconfig#declarationMap
     "jsx": "preserve", // https://www.typescriptlang.org/zh/tsconfig#jsx
-    "lib": ["esnext", "dom"], // https://www.typescriptlang.org/zh/tsconfig#lib
-    "module": "esnext", // https://www.typescriptlang.org/zh/tsconfig#module
-    "noEmit": true, // https://www.typescriptlang.org/zh/tsconfig#noEmit
+    "lib": [
+      "esnext",
+      "dom"
+    ], // https://www.typescriptlang.org/zh/tsconfig#lib
     "removeComments": false, // https://www.typescriptlang.org/zh/tsconfig#removeComments
     "sourceMap": false, // https://www.typescriptlang.org/zh/tsconfig#sourceMap
     "target": "esnext", // https://www.typescriptlang.org/zh/tsconfig#target
@@ -27,7 +28,14 @@
     // Module Resolution
     "allowSyntheticDefaultImports": true, // https://www.typescriptlang.org/zh/tsconfig#allowSyntheticDefaultImports
     "esModuleInterop": true, // https://www.typescriptlang.org/zh/tsconfig#esModuleInterop
-    "moduleResolution": "node", // https://www.typescriptlang.org/zh/tsconfig#moduleResolution
+    /** Transpile using Bundler (not tsc) */
+    "module": "Preserve", // https://www.typescriptlang.org/zh/tsconfig#module
+    "moduleResolution": "Bundler", // https://www.typescriptlang.org/zh/tsconfig#moduleResolution
+    "noEmit": true, // https://www.typescriptlang.org/zh/tsconfig#noEmit
+    /** Keep TSC performant in monorepos */
+    "incremental": true, // https://www.typescriptlang.org/zh/tsconfig#incremental
+    "disableSourceOfProjectReferenceRedirect": true, // https://www.typescriptlang.org/zh/tsconfig#disableSourceOfProjectReferenceRedirect
+    "tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json", // https://www.typescriptlang.org/zh/tsconfig#tsBuildInfoFile
     // Linter Checks
     "noFallthroughCasesInSwitch": true, // https://www.typescriptlang.org/zh/tsconfig#noFallthroughCasesInSwitch
     "noImplicitReturns": true, // https://www.typescriptlang.org/zh/tsconfig#noImplicitReturns
