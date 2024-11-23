@@ -80,7 +80,7 @@ export const typescript = [
         },
       ],
       'no-invalid-this': 'off',
-      '@typescript-eslint/no-invalid-this': 'error',
+      '@typescript-eslint/no-invalid-this': 'off',
       'no-redeclare': 'off',
       '@typescript-eslint/no-redeclare': 'error',
       'no-use-before-define': 'off',
