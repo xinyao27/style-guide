@@ -3,52 +3,41 @@
   "display": "XYStack Base",
   "docs": "https://github.com/xinyao27/style-guide",
   "compilerOptions": {
-    // Project Options
+    "incremental": true, // https://www.typescriptlang.org/zh/tsconfig#incremental
+    "tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json", // https://www.typescriptlang.org/zh/tsconfig#tsBuildInfoFile
+    "disableSourceOfProjectReferenceRedirect": true, // https://www.typescriptlang.org/zh/tsconfig#disableSourceOfProjectReferenceRedirect
+    "target": "esnext", // https://www.typescriptlang.org/zh/tsconfig#target
+    "jsx": "preserve", // https://www.typescriptlang.org/zh/tsconfig#jsx
+    "lib": ["esnext", "dom"], // https://www.typescriptlang.org/zh/tsconfig#lib
+    "noLib": false, // https://www.typescriptlang.org/zh/tsconfig#noLib
+    "useDefineForClassFields": true, // https://www.typescriptlang.org/zh/tsconfig#useDefineForClassFields
+    "emitDecoratorMetadata": true, // https://www.typescriptlang.org/zh/tsconfig#emitDecoratorMetadata
+    "experimentalDecorators": true, // https://www.typescriptlang.org/zh/tsconfig#experimentalDecorators
+    "module": "Preserve", // https://www.typescriptlang.org/zh/tsconfig#module
+    "moduleResolution": "Bundler", // https://www.typescriptlang.org/zh/tsconfig#moduleResolution
+    "resolveJsonModule": true, // https://www.typescriptlang.org/zh/tsconfig#resolveJsonModule
     "allowJs": false, // https://www.typescriptlang.org/zh/tsconfig#allowJs
     "checkJs": false, // https://www.typescriptlang.org/zh/tsconfig#checkJs
-    "declaration": true, // https://www.typescriptlang.org/zh/tsconfig#declaration
-    "declarationMap": true, // https://www.typescriptlang.org/zh/tsconfig#declarationMap
-    "jsx": "preserve", // https://www.typescriptlang.org/zh/tsconfig#jsx
-    "lib": [
-      "esnext",
-      "dom"
-    ], // https://www.typescriptlang.org/zh/tsconfig#lib
-    "removeComments": false, // https://www.typescriptlang.org/zh/tsconfig#removeComments
-    "sourceMap": false, // https://www.typescriptlang.org/zh/tsconfig#sourceMap
-    "target": "esnext", // https://www.typescriptlang.org/zh/tsconfig#target
-    "useDefineForClassFields": true, // https://www.typescriptlang.org/zh/tsconfig#useDefineForClassFields
-    // Strict Checks
-    "noImplicitAny": true, // https://www.typescriptlang.org/zh/tsconfig#noImplicitAny
-    "noImplicitThis": false, // https://www.typescriptlang.org/zh/tsconfig#noImplicitThis
     "strict": true, // https://www.typescriptlang.org/zh/tsconfig#strict
     "strictBindCallApply": true, // https://www.typescriptlang.org/zh/tsconfig#strictBindCallApply
     "strictFunctionTypes": true, // https://www.typescriptlang.org/zh/tsconfig#strictFunctionTypes
     "strictNullChecks": true, // https://www.typescriptlang.org/zh/tsconfig#strictNullChecks
     "strictPropertyInitialization": false, // https://www.typescriptlang.org/zh/tsconfig#strictPropertyInitialization
-    // Module Resolution
-    "allowSyntheticDefaultImports": true, // https://www.typescriptlang.org/zh/tsconfig#allowSyntheticDefaultImports
-    "esModuleInterop": true, // https://www.typescriptlang.org/zh/tsconfig#esModuleInterop
-    /** Transpile using Bundler (not tsc) */
-    "module": "Preserve", // https://www.typescriptlang.org/zh/tsconfig#module
-    "moduleResolution": "Bundler", // https://www.typescriptlang.org/zh/tsconfig#moduleResolution
-    "noEmit": true, // https://www.typescriptlang.org/zh/tsconfig#noEmit
-    /** Keep TSC performant in monorepos */
-    "incremental": true, // https://www.typescriptlang.org/zh/tsconfig#incremental
-    "disableSourceOfProjectReferenceRedirect": true, // https://www.typescriptlang.org/zh/tsconfig#disableSourceOfProjectReferenceRedirect
-    "tsBuildInfoFile": "${configDir}/.cache/tsbuildinfo.json", // https://www.typescriptlang.org/zh/tsconfig#tsBuildInfoFile
-    // Linter Checks
     "noFallthroughCasesInSwitch": true, // https://www.typescriptlang.org/zh/tsconfig#noFallthroughCasesInSwitch
+    "noImplicitAny": true, // https://www.typescriptlang.org/zh/tsconfig#noImplicitAny
     "noImplicitReturns": true, // https://www.typescriptlang.org/zh/tsconfig#noImplicitReturns
+    "noImplicitThis": false, // https://www.typescriptlang.org/zh/tsconfig#noImplicitThis
     "noUnusedLocals": true, // https://www.typescriptlang.org/zh/tsconfig#noUnusedLocals
     "noUnusedParameters": true, // https://www.typescriptlang.org/zh/tsconfig#noUnusedParameters
-    // Experimental
-    "emitDecoratorMetadata": true, // https://www.typescriptlang.org/zh/tsconfig#emitDecoratorMetadata
-    "experimentalDecorators": true, // https://www.typescriptlang.org/zh/tsconfig#experimentalDecorators
-    // Advanced
+    "declaration": true, // https://www.typescriptlang.org/zh/tsconfig#declaration
+    "declarationMap": true, // https://www.typescriptlang.org/zh/tsconfig#declarationMap
+    "noEmit": true, // https://www.typescriptlang.org/zh/tsconfig#noEmit
     "noEmitOnError": true, // https://www.typescriptlang.org/zh/tsconfig#noEmitOnError
-    "noLib": false, // https://www.typescriptlang.org/zh/tsconfig#noLib
+    "removeComments": false, // https://www.typescriptlang.org/zh/tsconfig#removeComments
+    "sourceMap": false, // https://www.typescriptlang.org/zh/tsconfig#sourceMap
+    "allowSyntheticDefaultImports": true, // https://www.typescriptlang.org/zh/tsconfig#allowSyntheticDefaultImports
+    "esModuleInterop": true, // https://www.typescriptlang.org/zh/tsconfig#esModuleInterop
     "traceResolution": false, // https://www.typescriptlang.org/zh/tsconfig#traceResolution
-    "resolveJsonModule": true, // https://www.typescriptlang.org/zh/tsconfig#resolveJsonModule
     "skipLibCheck": true // https://www.typescriptlang.org/zh/tsconfig#skipLibCheck
   }
 }

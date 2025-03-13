@@ -1,19 +1,6 @@
-/**
- * Some of Prettier's defaults can be overridden by an EditorConfig file. We
- * define those here to ensure that doesn't happen.
- *
- * See: https://github.com/prettier/prettier/blob/main/docs/configuration.md#editorconfig
- */
-/** @type {import("prettier").Config} */
-const config = {
-  semi: false,
-  singleQuote: true,
-  endOfLine: 'lf',
-  trailingComma: 'all',
-  tabWidth: 2,
-  printWidth: 120,
-  useTabs: false,
-  plugins: ['prettier-plugin-tailwindcss'],
+import type { Config } from 'prettier'
+
+const config: Config = {
   overrides: [
     {
       files: [
@@ -40,6 +27,18 @@ const config = {
       options: { requirePragma: true },
     },
   ],
+  plugins: ['prettier-plugin-tailwindcss'],
+  // https://prettier.io/docs/options.html#single-attribute-per-line
+  singleAttributePerLine: true,
+  // https://prettier.io/docs/options.html#bracket-line
+  bracketSameLine: false,
+  trailingComma: 'all',
+  singleQuote: true,
+  endOfLine: 'lf',
+  printWidth: 120,
+  useTabs: false,
+  semi: false,
+  tabWidth: 2,
 }
 
 export default config

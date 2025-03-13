@@ -1,7 +1,14 @@
-import { execSync } from 'node:child_process'
-import { exec } from 'node:child_process'
+import { execSync, exec } from 'node:child_process'
 import util from 'node:util'
-import pkgJson from '../package.json' assert { type: 'json' }
+
+import pkgJson from '../package.json'
+
+export function getEslintConfigContent() {
+  return `import { defineConfig } from '@xystack/style-guide/eslint'
+
+export default defineConfig()
+`
+}
 
 export function isGitClean() {
   try {
@@ -10,13 +17,6 @@ export function isGitClean() {
   } catch {
     return false
   }
-}
-
-export function getEslintConfigContent() {
-  return `import { all } from '@xystack/style-guide/eslint'
-
-export default [...all]
-`
 }
 
 export const execPromise = util.promisify(exec)

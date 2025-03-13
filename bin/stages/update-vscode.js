@@ -1,35 +1,36 @@
+import * as p from '@clack/prompts'
 import process from 'node:process'
+import * as c from 'xycolors'
 import path from 'node:path'
 import fs from 'fs-extra'
-import * as p from '@clack/prompts'
-import * as c from 'xycolors'
 
 const settings = {
-  'eslint.useFlatConfig': true,
-  'prettier.enable': false,
-  'editor.formatOnSave': true,
-  'editor.codeActionsOnSave': {
-    'source.fixAll.eslint': 'explicit',
-    'source.organizeImports': 'never',
-  },
+  // Enable eslint for all supported languages
   'eslint.validate': [
     'javascript',
     'javascriptreact',
     'typescript',
     'typescriptreact',
-    'vue',
     'html',
-    'markdown',
     'json',
+    'json5',
     'jsonc',
-    'astro',
-    'css',
-    'less',
-    'scss',
-    'pcss',
-    'postcss',
+    'yaml',
+    'toml',
+    'xml',
   ],
-  'html.format.enable': false,
+  // Auto fix
+  'editor.codeActionsOnSave': {
+    'source.fixAll.eslint': 'explicit',
+    'source.organizeImports': 'never',
+  },
+
+  'editor.formatOnSave': false,
+
+  // Disable the default formatter, use eslint instead
+  'prettier.enable': false,
+
+  'eslint.runtime': 'node',
 }
 
 export async function updateVSCode() {

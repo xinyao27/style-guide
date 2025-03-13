@@ -1,9 +1,10 @@
-import process from 'node:process'
-import path from 'node:path'
-import fs from 'fs-extra'
-import * as c from 'xycolors'
 import * as p from '@clack/prompts'
 import parse from 'parse-gitignore'
+import process from 'node:process'
+import * as c from 'xycolors'
+import path from 'node:path'
+import fs from 'fs-extra'
+
 import { getEslintConfigContent } from '../utils.js'
 
 export async function updateEslintFiles() {
@@ -47,8 +48,8 @@ export async function updateEslintFiles() {
 
   if (legacyConfig.length > 0) {
     const needDelete = await p.confirm({
-      initialValue: true,
       message: `Do you want to delete the legacy config files? [${c.dim(legacyConfig.join(', '))}]`,
+      initialValue: true,
     })
     if (needDelete) {
       for (const file of legacyConfig) {

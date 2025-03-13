@@ -12,7 +12,7 @@ export function jsx2() {
     <Component1>
       Block Text
       </Component1>
-      <div>
+      <div className="flex justify-center gap-2 items-center">
         Mixed
             <div>Foo</div>
           Text<b > Bar</b>

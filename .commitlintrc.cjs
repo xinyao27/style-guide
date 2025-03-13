@@ -1,5 +1,4 @@
 module.exports = {
-  extends: ['@commitlint/config-conventional'],
   rules: {
     'type-enum': [
       2,
@@ -49,4 +48,5 @@ module.exports = {
     ],
     'scope-empty': [1, 'never'],
   },
+  extends: ['@commitlint/config-conventional'],
 }

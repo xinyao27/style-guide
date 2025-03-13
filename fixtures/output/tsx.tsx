@@ -5,12 +5,19 @@ export function Component1() {
 export function jsx2() {
   const props = { a: 1, b: 2 }
   return (
-    <a bar="foo" foo="bar">
-      <div {...props} a={1} b="2">
+    <a
+      bar="foo"
+      foo="bar"
+    >
+      <div
+        {...props}
+        a={1}
+        b="2"
+      >
         Inline Text
       </div>
       <Component1>Block Text</Component1>
-      <div>
+      <div className="flex items-center justify-center gap-2">
         Mixed
         <div>Foo</div>
         Text<b> Bar</b>

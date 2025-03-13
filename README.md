@@ -18,6 +18,8 @@ The following configs are available, and are designed to be used together.
   - [Introduction](#introduction)
   - [Contributing](#contributing)
   - [Installation](#installation)
+    - [Starter Wizard](#starter-wizard)
+    - [Manual Installation](#manual-installation)
   - [Prettier](#prettier)
   - [ESLint](#eslint)
     - [Usage](#usage)
@@ -81,40 +83,18 @@ To use the shared Prettier config, set the following in `package.json`.
 
 ```js
 // eslint.config.js
-import { all } from '@xystack/style-guide/eslint'
+import { defineConfig } from '@xystack/style-guide/eslint'
 
-export default all
+export default defineConfig()
 ```
 
 ### VSCode
 
 ```json
 {
-  "eslint.useFlatConfig": true,
-  "prettier.enable": false,
   "editor.formatOnSave": true,
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": "explicit",
-    "source.organizeImports": "never"
-  },
-  "eslint.validate": [
-    "javascript",
-    "javascriptreact",
-    "typescript",
-    "typescriptreact",
-    "vue",
-    "html",
-    "markdown",
-    "json",
-    "jsonc",
-    "astro",
-    "css",
-    "less",
-    "scss",
-    "pcss",
-    "postcss"
-  ],
-  "html.format.enable": false
+  "prettier.enable": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
 ```
 
