@@ -1,7 +1,7 @@
 import { execSync, exec } from 'node:child_process'
 import util from 'node:util'
 
-import pkgJson from '../package.json'
+import pkgJson from '../package.json' assert { type: 'json' }
 
 export function getEslintConfigContent() {
   return `import { defineConfig } from '@xystack/style-guide/eslint'
