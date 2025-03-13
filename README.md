@@ -92,9 +92,33 @@ export default defineConfig()
 
 ```json
 {
-  "editor.formatOnSave": true,
-  "prettier.enable": true,
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+  // Disable the default formatter, use eslint instead
+  "prettier.enable": false,
+  "editor.formatOnSave": false,
+
+  // Auto fix
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.organizeImports": "never"
+  },
+
+  "eslint.runtime": "node",
+
+  // Enable eslint for all supported languages
+  "eslint.validate": [
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "html",
+    "json",
+    "json5",
+    "jsonc",
+    "yaml",
+    "toml",
+    "xml",
+    "css"
+  ]
 }
 ```
 
