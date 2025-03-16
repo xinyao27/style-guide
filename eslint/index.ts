@@ -1,4 +1,4 @@
 export * from './configs'
-export * from './presets'
 export * from './globs'
+export * from './presets'
 export * from './types'

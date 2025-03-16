@@ -5,7 +5,7 @@ import parserJsonc from 'jsonc-eslint-parser'
 
 import type { Config } from '../types'
 
-import { GLOB_JSON5, GLOB_JSONC, GLOB_JSON } from '../globs'
+import { GLOB_JSON, GLOB_JSON5, GLOB_JSONC } from '../globs'
 
 /**
  * ESLint plugin for JSON and JSON5 files.
@@ -14,20 +14,28 @@ import { GLOB_JSON5, GLOB_JSONC, GLOB_JSON } from '../globs'
  */
 export const jsonc = (): Config[] => [
   {
+    files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
+    languageOptions: { parser: parserJsonc },
+    plugins: { jsonc: pluginJsonc as any },
     rules: {
       ...(pluginJsonc.configs['recommended-with-jsonc'].rules as Linter.RulesRecord),
       'jsonc/quote-props': 'off',
       'jsonc/quotes': 'off',
     },
-    files: [GLOB_JSON, GLOB_JSON5, GLOB_JSONC],
-    languageOptions: { parser: parserJsonc },
-    plugins: { jsonc: pluginJsonc as any },
   },
 ]
 
 export const sortPackageJson = (): Config[] => [
   {
+    files: ['**/package.json'],
     rules: {
+      'jsonc/sort-array-values': [
+        'error',
+        {
+          order: { type: 'asc' },
+          pathPattern: '^files$',
+        },
+      ],
       'jsonc/sort-keys': [
         'error',
         {
@@ -78,32 +86,25 @@ export const sortPackageJson = (): Config[] => [
           pathPattern: '^$',
         },
         {
-          pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
           order: { type: 'asc' },
+          pathPattern: '^(?:dev|peer|optional|bundled)?[Dd]ependencies(Meta)?$',
         },
         {
           order: ['types', 'require', 'import', 'default'],
           pathPattern: '^exports.*$',
         },
         {
+          order: { type: 'asc' },
           pathPattern: '^(?:resolutions|overrides|pnpm.overrides)$',
-          order: { type: 'asc' },
-        },
-      ],
-      'jsonc/sort-array-values': [
-        'error',
-        {
-          order: { type: 'asc' },
-          pathPattern: '^files$',
         },
       ],
     },
-    files: ['**/package.json'],
   },
 ]
 
 export const sortTsconfig = (): Config[] => [
   {
+    files: ['**/tsconfig.json', '**/tsconfig.*.json'],
     rules: {
       'jsonc/sort-keys': [
         'error',
@@ -215,6 +216,5 @@ export const sortTsconfig = (): Config[] => [
         },
       ],
     },
-    files: ['**/tsconfig.json', '**/tsconfig.*.json'],
   },
 ]

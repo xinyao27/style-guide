@@ -1,6 +1,9 @@
 import type { Config } from 'prettier'
 
 const config: Config = {
+  // https://prettier.io/docs/options.html#bracket-line
+  bracketSameLine: false,
+  endOfLine: 'lf',
   overrides: [
     {
       files: [
@@ -28,17 +31,14 @@ const config: Config = {
     },
   ],
   plugins: ['prettier-plugin-tailwindcss'],
+  printWidth: 120,
+  semi: false,
   // https://prettier.io/docs/options.html#single-attribute-per-line
   singleAttributePerLine: true,
-  // https://prettier.io/docs/options.html#bracket-line
-  bracketSameLine: false,
-  trailingComma: 'all',
   singleQuote: true,
-  endOfLine: 'lf',
-  printWidth: 120,
-  useTabs: false,
-  semi: false,
   tabWidth: 2,
+  trailingComma: 'all',
+  useTabs: false,
 }
 
 export default config

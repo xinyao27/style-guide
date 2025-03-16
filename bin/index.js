@@ -3,9 +3,9 @@
 import * as p from '@clack/prompts'
 import * as c from 'xycolors'
 
-import { updateTheDependencies } from './stages/update-the-dependencies.js'
-import { updatePackageJson } from './stages/update-package-json.js'
 import { updateEslintFiles } from './stages/update-eslint-files.js'
+import { updatePackageJson } from './stages/update-package-json.js'
+import { updateTheDependencies } from './stages/update-the-dependencies.js'
 import { updateVSCode } from './stages/update-vscode.js'
 import { isGitClean, pkgJson } from './utils.js'
 
@@ -22,16 +22,16 @@ async function main() {
         }
 
         return p.confirm({
-          message: 'There are uncommitted changes in the current repository, are you sure to continue?',
           initialValue: false,
+          message: 'There are uncommitted changes in the current repository, are you sure to continue?',
         })
       },
-      updateTheDependencies: async ({ results }) => {
+      updateEslintFiles: async ({ results }) => {
         if (!results.uncommittedConfirmed) {
           return process.exit(1)
         }
 
-        return await updateTheDependencies()
+        return await updateEslintFiles()
       },
       updatePackageJson: async ({ results }) => {
         if (!results.uncommittedConfirmed) {
@@ -40,12 +40,12 @@ async function main() {
 
         return await updatePackageJson()
       },
-      updateEslintFiles: async ({ results }) => {
+      updateTheDependencies: async ({ results }) => {
         if (!results.uncommittedConfirmed) {
           return process.exit(1)
         }
 
-        return await updateEslintFiles()
+        return await updateTheDependencies()
       },
       updateVSCode: async ({ results }) => {
         if (!results.uncommittedConfirmed) {

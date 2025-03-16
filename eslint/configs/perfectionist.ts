@@ -7,4 +7,4 @@ import type { Config } from '../types'
  *
  * @see https://github.com/azat-io/eslint-plugin-perfectionist
  */
-export const perfectionist = (): Config[] => [pluginPerfectionist.configs['recommended-line-length']]
+export const perfectionist = (): Config[] => [pluginPerfectionist.configs['recommended-natural']]

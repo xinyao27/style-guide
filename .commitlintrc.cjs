@@ -1,5 +1,23 @@
 module.exports = {
+  extends: ['@commitlint/config-conventional'],
   rules: {
+    'scope-empty': [1, 'never'],
+    'scope-enum': [
+      2,
+      'always',
+      [
+        // Dependency-related changes
+        'deps',
+        // ESLint-related changes
+        'eslint',
+        // Prettier-related changes
+        'prettier',
+        // TypeScript-related changes
+        'typescript',
+        // wizard-related changes
+        'wizard',
+      ],
+    ],
     'type-enum': [
       2,
       'always',
@@ -30,23 +48,5 @@ module.exports = {
         'chore',
       ],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      [
-        // Dependency-related changes
-        'deps',
-        // ESLint-related changes
-        'eslint',
-        // Prettier-related changes
-        'prettier',
-        // TypeScript-related changes
-        'typescript',
-        // wizard-related changes
-        'wizard',
-      ],
-    ],
-    'scope-empty': [1, 'never'],
   },
-  extends: ['@commitlint/config-conventional'],
 }

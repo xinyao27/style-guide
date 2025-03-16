@@ -1,4 +1,4 @@
-export function HelloWorld({ greeted = '"World"', greeting = 'hello', silent = false, onMouseOver }) {
+export function HelloWorld({ greeted = '"World"', greeting = 'hello', onMouseOver, silent = false }) {
   if (!greeting) {
     return null
   }
@@ -10,9 +10,9 @@ export function HelloWorld({ greeted = '"World"', greeting = 'hello', silent = f
 
   return (
     <div
-      title={`You are visitor number ${num}`}
-      onMouseOver={onMouseOver}
       className="HelloWorld"
+      onMouseOver={onMouseOver}
+      title={`You are visitor number ${num}`}
     >
       <strong>{greeting.slice(0, 1).toUpperCase() + greeting.slice(1).toLowerCase()}</strong>
       {greeting.endsWith(',') ? ' ' : <span style={{ color: 'grey' }}>", "</span>}

@@ -1,18 +1,18 @@
 import type { Config } from './types'
 
 import {
-  sortPackageJson,
-  perfectionist,
-  sortTsconfig,
-  javascript,
-  typescript,
   comments,
-  prettier,
   imports,
-  unicorn,
+  javascript,
   jsonc,
-  react,
   jsx,
+  perfectionist,
+  prettier,
+  react,
+  sortPackageJson,
+  sortTsconfig,
+  typescript,
+  unicorn,
   yml,
 } from './configs'
 
@@ -37,48 +37,48 @@ export const presetLangsExtensions = (): Config[] => [...yml(), ...presetJsonc()
 export const presetAll = (): Config[] => [...presetBasic(), ...presetJsonc(), ...presetLangsExtensions(), ...prettier()]
 
 export async function defineConfig(
-  config: Config[] | Config = [],
+  config: Config | Config[] = [],
   {
-    sortPackageJson: enableSortPackageJson = true,
-    perfectionist: enablePerfectionist = true,
-    sortTsconfig: enableSortTsconfig = true,
-    javascript: enableJavaScript = true,
-    typescript: enableTypescript = true,
     comments: enableComments = true,
-    prettier: enablePrettier = true,
     imports: enableImports = true,
-    unicorn: enableUnicorn = true,
+    javascript: enableJavaScript = true,
     jsonc: enableJsonc = true,
-    react: enableReact = true,
     jsx: enableJsx = true,
+    perfectionist: enablePerfectionist = true,
+    prettier: enablePrettier = true,
+    react: enableReact = true,
+    sortPackageJson: enableSortPackageJson = true,
+    sortTsconfig: enableSortTsconfig = true,
+    typescript: enableTypescript = true,
+    unicorn: enableUnicorn = true,
     yml: enableYml = true,
   }: Partial<{
-    /** Sort package.json keys. Default: true */
-    sortPackageJson: boolean
-    /** Perfectionist support. Default: true */
-    perfectionist: boolean
-    /** Sort tsconfig.json keys. Default: true */
-    sortTsconfig: boolean
-    /** JavaScript support. Default: true */
-    javascript: boolean
-    /** TypeScript support. Default: true */
-    typescript: boolean
     /** Comments support. Default: true */
     comments: boolean
-    /** Prettier support. Default: true */
-    prettier: boolean
-    /** Imports support. Default: true */
-    imports: boolean
-    /** Unicorn support. Default: true */
-    unicorn: boolean
-    /** JSON(c) support. Default: true */
-    jsonc: boolean
-    /** React support. Default: true */
-    react: boolean
     /** CSS support. Default: true */
     css: boolean
+    /** Imports support. Default: true */
+    imports: boolean
+    /** JavaScript support. Default: true */
+    javascript: boolean
+    /** JSON(c) support. Default: true */
+    jsonc: boolean
     /** JSX support. Default: true */
     jsx: boolean
+    /** Perfectionist support. Default: true */
+    perfectionist: boolean
+    /** Prettier support. Default: true */
+    prettier: boolean
+    /** React support. Default: true */
+    react: boolean
+    /** Sort package.json keys. Default: true */
+    sortPackageJson: boolean
+    /** Sort tsconfig.json keys. Default: true */
+    sortTsconfig: boolean
+    /** TypeScript support. Default: true */
+    typescript: boolean
+    /** Unicorn support. Default: true */
+    unicorn: boolean
     /** YAML support. Default: true */
     yml: boolean
   }> = {},

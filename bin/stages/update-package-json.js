@@ -1,8 +1,8 @@
 import * as p from '@clack/prompts'
+import fs from 'fs-extra'
+import path from 'node:path'
 import process from 'node:process'
 import * as c from 'xycolors'
-import path from 'node:path'
-import fs from 'fs-extra'
 
 import { pkgJson } from '../utils.js'
 

@@ -1,7 +1,7 @@
-import type { ESLint, Rule, AST } from 'eslint'
+import type { AST, ESLint, Rule } from 'eslint'
 import type { Options } from 'prettier'
 
-import { reportDifferences, messages } from 'eslint-formatting-reporter'
+import { messages, reportDifferences } from 'eslint-formatting-reporter'
 // copy from https://github.com/antfu/eslint-plugin-format/blob/main/src/rules/prettier.ts thanks to @antfu
 import { fileURLToPath } from 'node:url'
 import { createSyncFn } from 'synckit'
@@ -29,8 +29,8 @@ const rule: Rule.RuleModule = {
           if (!(error_ instanceof SyntaxError)) {
             context.report({
               loc: {
-                start: { column: 0, line: 1 },
                 end: { column: 0, line: 1 },
+                start: { column: 0, line: 1 },
               },
               message: 'Failed to format the code',
             })
@@ -39,7 +39,7 @@ const rule: Rule.RuleModule = {
 
           let message = `Parsing error: ${error_.message}`
 
-          const error = error_ as { loc: AST.SourceLocation; codeFrame: string } & SyntaxError
+          const error = error_ as SyntaxError & { codeFrame: string; loc: AST.SourceLocation }
 
           if (error.codeFrame) message = message.replace(`\n${error.codeFrame}`, '')
 
@@ -51,22 +51,22 @@ const rule: Rule.RuleModule = {
     }
   },
   meta: {
+    docs: { description: 'Use Prettier to format code' },
+    fixable: 'whitespace',
+    messages,
     schema: [
       {
+        additionalProperties: true,
         properties: {
           parser: {
-            type: 'string',
             required: true,
+            type: 'string',
           },
         },
-        additionalProperties: true,
         type: 'object',
       },
     ],
-    docs: { description: 'Use Prettier to format code' },
-    fixable: 'whitespace',
     type: 'layout',
-    messages,
   },
 }
 

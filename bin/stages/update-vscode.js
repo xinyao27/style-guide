@@ -1,10 +1,19 @@
 import * as p from '@clack/prompts'
+import fs from 'fs-extra'
+import path from 'node:path'
 import process from 'node:process'
 import * as c from 'xycolors'
-import path from 'node:path'
-import fs from 'fs-extra'
 
 const settings = {
+  // Auto fix
+  'editor.codeActionsOnSave': {
+    'source.fixAll.eslint': 'explicit',
+    'source.organizeImports': 'never',
+  },
+  'editor.formatOnSave': false,
+
+  'eslint.runtime': 'node',
+
   // Enable eslint for all supported languages
   'eslint.validate': [
     'javascript',
@@ -19,18 +28,9 @@ const settings = {
     'toml',
     'xml',
   ],
-  // Auto fix
-  'editor.codeActionsOnSave': {
-    'source.fixAll.eslint': 'explicit',
-    'source.organizeImports': 'never',
-  },
-
-  'editor.formatOnSave': false,
 
   // Disable the default formatter, use eslint instead
   'prettier.enable': false,
-
-  'eslint.runtime': 'node',
 }
 
 export async function updateVSCode() {

@@ -2,31 +2,31 @@
  * Package managers
  */
 export const yarn = {
-  installCommand: 'yarn add',
-  lockFile: 'yarn.lock',
   dlxCommand: 'npx',
+  installCommand: 'yarn add',
   label: 'yarn',
+  lockFile: 'yarn.lock',
   name: 'yarn',
 }
 export const pnpm = {
-  installCommand: 'pnpm install',
-  lockFile: 'pnpm-lock.yaml',
   dlxCommand: 'pnpx',
+  installCommand: 'pnpm install',
   label: 'pnpm',
+  lockFile: 'pnpm-lock.yaml',
   name: 'pnpm',
 }
 export const npm = {
-  lockFile: 'package-lock.json',
-  installCommand: 'npm install',
   dlxCommand: 'npx',
+  installCommand: 'npm install',
   label: 'npm',
+  lockFile: 'package-lock.json',
   name: 'npm',
 }
 export const bun = {
-  installCommand: 'bun add',
-  lockFile: 'bun.lockb',
   dlxCommand: 'bunx',
+  installCommand: 'bun add',
   label: 'bun',
+  lockFile: 'bun.lockb',
   name: 'bun',
 }
 export const packageManagers = [bun, pnpm, yarn, npm]
