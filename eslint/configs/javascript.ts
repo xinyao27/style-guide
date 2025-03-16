@@ -101,7 +101,6 @@ export const javascript = (): Config[] => [
       'no-return-assign': 'off',
       'no-return-await': 'off',
       'no-unused-vars': 'off',
-      'no-use-before-define': ['error', { classes: false, functions: false, variables: true }],
 
       'no-useless-escape': 'off',
       // es6

@@ -189,7 +189,7 @@ export const standardRules: Linter.RulesRecord = {
       vars: 'all',
     },
   ],
-  'no-use-before-define': ['error', { classes: false, functions: false, variables: false }],
+  'no-use-before-define': 'off',
   'no-useless-backreference': 'error',
   'no-useless-call': 'error',
   'no-useless-catch': 'error',
