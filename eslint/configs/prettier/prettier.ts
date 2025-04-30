@@ -1,18 +1,18 @@
+// copy from https://github.com/antfu/eslint-plugin-format/blob/main/src/rules/prettier.ts thanks to @antfu
 import type { AST, ESLint, Rule } from 'eslint'
 import type { Options } from 'prettier'
 
 import { messages, reportDifferences } from 'eslint-formatting-reporter'
-// copy from https://github.com/antfu/eslint-plugin-format/blob/main/src/rules/prettier.ts thanks to @antfu
+import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { createSyncFn } from 'synckit'
 
-const prettier = fileURLToPath(new URL('./worker.cjs', import.meta.url))
+const dirWorkers = fileURLToPath(new URL('./', import.meta.url))
 let format: (code: string, options: Options) => string
 
 const rule: Rule.RuleModule = {
   create(context) {
-    if (!format) format = createSyncFn(prettier) as any
-    const onDiskFilepath = context.physicalFilename ?? context.getPhysicalFilename()
+    if (!format) format = createSyncFn(join(dirWorkers, 'worker.cjs')) as any
 
     return {
       Program() {
@@ -20,8 +20,7 @@ const rule: Rule.RuleModule = {
         try {
           const formatted = format(sourceCode, {
             filepath: context.filename,
-            onDiskFilepath,
-            ...context.options[0],
+            ...(context.options[0] || {}),
           })
 
           reportDifferences(context, sourceCode, formatted)
@@ -51,7 +50,9 @@ const rule: Rule.RuleModule = {
     }
   },
   meta: {
-    docs: { description: 'Use Prettier to format code' },
+    docs: {
+      description: 'Use Prettier to format code',
+    },
     fixable: 'whitespace',
     messages,
     schema: [
