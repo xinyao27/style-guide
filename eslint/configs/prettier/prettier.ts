@@ -1,20 +1,26 @@
 // copy from https://github.com/antfu/eslint-plugin-format/blob/main/src/rules/prettier.ts thanks to @antfu
 import type { AST, ESLint, Rule } from 'eslint'
+import type { Options } from 'prettier'
 
-import synchronizedPrettier from '@prettier/sync'
 import { messages, reportDifferences } from 'eslint-formatting-reporter'
+import { join } from 'node:path'
+import { fileURLToPath } from 'node:url'
+import { createSyncFn } from 'synckit'
+
+const dirWorkers = fileURLToPath(new URL('./', import.meta.url))
+let format: (code: string, options: Options) => string
 
 const rule: Rule.RuleModule = {
   create(context) {
+    if (!format) format = createSyncFn(join(dirWorkers, 'worker.cjs')) as any
+
     return {
       Program() {
         const sourceCode = context.sourceCode.text
         try {
-          const config = synchronizedPrettier.resolveConfig(context.filename)
-          const formatted = synchronizedPrettier.format(sourceCode, {
-            ...(context.options[0] || {}),
-            ...config,
+          const formatted = format(sourceCode, {
             filepath: context.filename,
+            ...(context.options[0] || {}),
           })
 
           reportDifferences(context, sourceCode, formatted)
@@ -32,10 +38,7 @@ const rule: Rule.RuleModule = {
 
           let message = `Parsing error: ${error_.message}`
 
-          const error = error_ as SyntaxError & {
-            codeFrame: string
-            loc: AST.SourceLocation
-          }
+          const error = error_ as SyntaxError & { codeFrame: string; loc: AST.SourceLocation }
 
           if (error.codeFrame) message = message.replace(`\n${error.codeFrame}`, '')
 
