@@ -9,13 +9,6 @@ export const typescriptCore = tseslint.config({
   files: [GLOB_TS, GLOB_TSX],
   rules: {
     '@typescript-eslint/ban-ts-comment': 'off',
-    '@typescript-eslint/consistent-type-assertions': [
-      'error',
-      {
-        assertionStyle: 'as',
-        objectLiteralTypeAssertions: 'allow-as-parameter',
-      },
-    ],
     '@typescript-eslint/consistent-type-imports': [
       'error',
       { disallowTypeAnnotations: false, fixStyle: 'inline-type-imports' },
