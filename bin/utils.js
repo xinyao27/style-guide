@@ -1,7 +1,8 @@
-import { execSync, exec } from 'node:child_process'
+import { exec, execSync } from 'node:child_process'
+import { readFileSync } from 'node:fs'
 import util from 'node:util'
 
-import pkgJson from '../package.json' assert { type: 'json' }
+const pkgJson = JSON.parse(readFileSync(new URL('../package.json', import.meta.url), 'utf8'))
 
 export function getEslintConfigContent() {
   return `import { defineConfig } from '@xystack/style-guide/eslint'
