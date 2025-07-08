@@ -80,7 +80,7 @@ export const unicorn = (): Config[] => [
       // top level await is not supported in all environments
       // 'unicorn/prefer-top-level-await': 'error',
       'unicorn/prefer-type-error': 'error',
-      'unicorn/throw-new-error': 'error',
+      'unicorn/throw-new-error': 'off',
     },
   },
 ]
