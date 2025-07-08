@@ -27,6 +27,7 @@
     "noImplicitAny": true, // https://www.typescriptlang.org/zh/tsconfig#noImplicitAny
     "noImplicitReturns": true, // https://www.typescriptlang.org/zh/tsconfig#noImplicitReturns
     "noImplicitThis": false, // https://www.typescriptlang.org/zh/tsconfig#noImplicitThis
+    "noUncheckedIndexedAccess": true, // https://www.typescriptlang.org/zh/tsconfig/#noUncheckedIndexedAccess
     "noUnusedLocals": true, // https://www.typescriptlang.org/zh/tsconfig#noUnusedLocals
     "noUnusedParameters": true, // https://www.typescriptlang.org/zh/tsconfig#noUnusedParameters
     "declaration": true, // https://www.typescriptlang.org/zh/tsconfig#declaration
