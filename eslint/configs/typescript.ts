@@ -19,6 +19,7 @@ export const typescriptCore = tseslint.config({
     '@typescript-eslint/no-import-type-side-effects': 'error',
     '@typescript-eslint/no-non-null-assertion': 'off',
     '@typescript-eslint/no-redeclare': 'off',
+    '@typescript-eslint/no-this-alias': 'off',
     '@typescript-eslint/no-unsafe-function-type': 'off',
     '@typescript-eslint/no-unused-expressions': [
       'error',
