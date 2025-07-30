@@ -26,7 +26,7 @@ export const react = (): Config[] => [
       'react/jsx-closing-bracket-location': ['error', 'line-aligned'],
       'react/jsx-closing-tag-location': ['error'],
       'react/jsx-curly-brace-presence': ['error', { children: 'never', propElementValues: 'always', props: 'never' }],
-      'react/jsx-curly-newline': ['error', { multiline: 'consistent', singleline: 'consistent' }],
+      'react/jsx-curly-newline': 'off',
       'react/jsx-curly-spacing': ['error', { children: true, when: 'never' }],
       'react/jsx-equals-spacing': ['error'],
       'react/jsx-first-prop-new-line': ['error', 'multiline-multiprop'],
